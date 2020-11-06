@@ -1,0 +1,40 @@
+body {
+  color: white;
+  font-family: Roboto, sans-serif;
+}
+
+section {
+  border: 1px solid black;
+  height: 400px;
+  margin-bottom: 30px;
+}
+
+/* Utilities */
+
+.box-square {
+  width: 100px;
+  height: 100px;
+}
+.bg-black {
+  background-color: black;
+}
+.bg-dark {
+  background-color: #38393a;
+}
+.mr-5 {
+  margin-right: 5px;
+}
+/* Example */
+#example {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Challenge 1 */
+#challenge1 .container {
+  display: flex;
+  justify-content: space-between;
+}
+#challenge1 .right-side {
+  display: flex;
+}

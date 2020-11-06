@@ -1,0 +1,105 @@
+section {
+  padding: 30px 20vw;
+}
+
+/* Assignment 1 */
+
+#assignment1 {
+  background-color: #fff;
+  background-image: linear-gradient(
+      90deg,
+      transparent 79px,
+      #abced4 79px,
+      #abced4 81px,
+      transparent 81px
+    ),
+    linear-gradient(#eee 0.1em, transparent 0.1em);
+  background-size: 100% 1.2em;
+}
+
+#assignment1 p {
+  color: #2c3e50;
+  font: italic 20px Verdana;
+}
+
+#assignment1 p::first-letter {
+  color: #27ae60;
+  font-size: 2em;
+}
+
+#assignment1 #para1 {
+  color: #2ecc71;
+}
+
+#assignment1 .header {
+  color: #e67e22;
+}
+
+#assignment1 h1 {
+  background-color: linen;
+}
+
+h1:first-child {
+  /* visibility: hidden; */
+  display: none;
+}
+
+/* Assignment 2 */
+
+#assignment2 a:link {
+  color: #3498db;
+}
+#assignment2 a:visited {
+  color: #8e44ad;
+}
+#assignment2 a:hover {
+  color: #e67e22;
+}
+#assignment2 a:active {
+  color: #e74c3c;
+}
+
+/* Assignment 3 */
+
+#assignment3 {
+  font-size: 50px;
+}
+
+#assignment3 li {
+  font-size: 0.8rem;
+}
+
+/* Assignment 4 */
+
+#assignment4 .box {
+  background-color: #2980b9;
+  width: 80vmin;
+  height: 80vmin;
+}
+
+/* Assignment 5 */
+
+#assignment5 .box {
+  border: 50px solid #e74c3c;
+  padding: 50px;
+  text-transform: uppercase;
+  width: 50vw;
+  overflow-x: scroll;
+}
+
+/* Applies border box sizing to the root element */
+:root {
+  box-sizing: border-box;
+}
+
+/* Tells all other elements and pseudo-element to inherit their box sizing */
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+#assignment5 .content {
+  box-sizing: content-box;
+  border-color: #16a085;
+}

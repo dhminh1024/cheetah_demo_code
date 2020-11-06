@@ -1,0 +1,104 @@
+body {
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  padding: 0 20vw;
+}
+
+section {
+  border: 1px solid #2c3e50;
+  margin-bottom: 10px;
+}
+
+.box {
+  text-transform: uppercase;
+  color: #fff;
+  padding: 20px;
+}
+
+.box-blue {
+  background-color: #3498db;
+}
+.box-green {
+  background-color: #2ecc71;
+}
+.box-orange {
+  background-color: #e67e22;
+}
+.box-yellow {
+  background-color: #e6e622;
+}
+.box-square {
+  width: 100px;
+  height: 100px;
+}
+
+/* Static */
+#static .box-orange {
+  top: 50px;
+  position: absolute;
+}
+
+/* relative */
+#relative .box-orange {
+  position: relative;
+  top: 15px;
+  left: 15px;
+}
+
+/* absolute */
+#absolute {
+  position: relative;
+}
+#absolute .box-orange {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+/* fixed */
+#fixed .box-orange {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+}
+
+/* sticky */
+#sticky .box-orange {
+  position: sticky;
+  bottom: 0px;
+}
+
+/* stacking */
+
+#stacking {
+  position: relative;
+  height: 400px;
+}
+
+#stacking .box {
+  position: absolute;
+}
+
+#stacking .box-yellow {
+  top: 50px;
+  left: 50px;
+  z-index: 4;
+}
+
+#stacking .box-orange {
+  top: 100px;
+  left: 100px;
+  z-index: 3;
+}
+
+#stacking .box-green {
+  top: 150px;
+  left: 150px;
+  z-index: 2;
+}
+
+#stacking .box-blue {
+  top: 200px;
+  left: 200px;
+  z-index: 1;
+}

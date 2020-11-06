@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic HTML</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>FTW Week 1 - Basic HTML Exercises</h1>
+    <section id="first-question">
+      <p>
+        <strong> 1. HTML comment </strong>
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;h3&gt;In this course we'll learn:&lt;/h3&gt;
+          &lt;p&gt;HTML & CSS&lt;/p&gt;
+          &lt;!-- &lt;p&gt;Python&lt;/p&gt; --&gt;
+          &lt;p&gt;Javascript&lt;/p&gt;
+        </code>
+      </pre>
+      <h3>In this course we'll learn:</h3>
+      <p>HTML & CSS</p>
+      <!-- <p>Python</p> -->
+      <p>Javascript</p>
+    </section>
+
+    <hr />
+
+    <section id="second-question">
+      <p>
+        <strong>2. Hyperlink 1</strong>: Create a hyperlink that leads to
+        www.coderschool.vn
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;a href="https://www.coderschool.vn"&gt;CoderSchool Website&lt;/a&gt;
+        </code>
+      </pre>
+      <a href="https://www.coderschool.vn">CoderSchool Website</a>
+    </section>
+
+    <hr />
+
+    <section id="third-question">
+      <p>
+        <strong> 3. Hyperlink 2</strong>: Create a hyperlink to take you to
+        another part of the same HTML document
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;a href="#first-question"&gt;1. HTML comment&lt;/a&gt;
+        </code>
+      </pre>
+      <a href="#first-question">1. HTML comment</a>
+    </section>
+
+    <hr />
+
+    <section id="forth-question">
+      <p>
+        <strong>4. Hyperlink 3</strong>: Create a hyperlink that opens the
+        linked document in a separate browser tab
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;a href="https://www.youtube.com" target="_blank"&gt; Youtube $lt;/a&gt;
+        </code>
+      </pre>
+      <a href="https://www.youtube.com" target="_blank"> Youtube </a>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>5. Article</strong>: Create an article element that has a title
+        and a paragraph (HTML5 article element represents independent item like
+        a blog entry in an web document).
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;article&gt;
+            &lt;h4&gt;My First Medium Article&lt;/h4&gt;
+            &lt;p&gt;This is an article about my journey to become a Data Scientist.&lt;/p&gt;
+          &lt;/article&gt;
+        </code>
+      </pre>
+      <article>
+        <h4>My First Medium Article</h4>
+        <p>This is an article about my journey to become a Data Scientist.</p>
+      </article>
+    </section>
+
+    <hr />
+
+    <section>
+      <p><strong>6. Audio</strong>: Embed an audio clip into a web page</p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;audio src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" controls &gt;&lt;/audio&gt;
+        </code>
+      </pre>
+      <audio
+        src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        controls
+      ></audio>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>7. Video</strong>
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;video src="http://techslides.com/demos/sample-videos/small.mp4" controls&gt;&lt;/video&gt;
+        </code>
+      </pre>
+      <video
+        src="http://techslides.com/demos/sample-videos/small.mp4"
+        controls
+      ></video>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>8. Image</strong>: Create an image with these attributes: An
+        alternate text, The size of the image is 250 pixels wide and 400 pixels
+        tall.
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;img
+            src="https://cdn.shopify.com/s/files/1/0047/3569/7009/products/PSX-20190714-205428_1024x1024@2x.jpg?v=1565530002"
+            alt="Cat"
+            width="250"
+            height="400"
+          /&gt;
+        </code>
+      </pre>
+      <img
+        src="https://cdn.shopify.com/s/files/1/0047/3569/7009/products/PSX-20190714-205428_1024x1024@2x.jpg?v=1565530002"
+        alt="Cat"
+        width="250"
+        height="400"
+      />
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>9. Bold text</strong>: How to write bold text using HTML tags?
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;b&gt;You can do it!&lt;/b&gt;
+        </code>
+      </pre>
+      <b>You can do it!</b>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>10. Underline text</strong>: How to underline a text in a HTML
+        document?
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;u&gt;Welcome to class!&lt;/u&gt;
+        </code>
+      </pre>
+      <u>Welcome to class!</u>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>11. Strikeout</strong>: Add a line through a word in a
+        paragraph.
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;del&gt;Nevermind!&lt;/del&gt;
+        </code>
+      </pre>
+      <del>Nevermind!</del>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>12. Line break</strong>: Add a line break in middle of a
+        paragraph.
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;p&gt;This is so cool blah blah blah.&lt;br /&gt;But that is cooler!&lt;/p&gt;
+        </code>
+      </pre>
+      <p>
+        This is so cool blah blah blah.
+        <br />
+        But that is cooler!
+      </p>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>13. Horizontal line</strong>: Add a horizontal line between two
+        paragraphs.
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;p&gt;This is my first paragraph.&lt;/p&gt;
+          &lt;hr /&gt;
+          &lt;p&gt;And this is the second one.&lt;/p&gt;
+        </code>
+      </pre>
+      <p>This is my first paragraph.</p>
+      <hr />
+      <p>And this is the second one.</p>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>14. Unordered List</strong>: Create an unordered list with three
+        items.
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;ul&gt;
+            &lt;li&gt;Egg&lt;/li&gt;
+            &lt;li&gt;Milk&lt;/li&gt;
+            &lt;li&gt;Chocolate&lt;/li&gt;
+          &lt;/ul>
+        </code>
+      </pre>
+      <ul>
+        <li>Egg</li>
+        <li>Milk</li>
+        <li>Chocolate</li>
+      </ul>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>15. Ordered List</strong>: Create three ordered lists that use
+        numbers/uppercase ABC/roman numbers for the item. Each has 2 items.
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;ol type="1"&gt;
+            &lt;li&gt;Fullstack Web&lt;/li&gt;
+            &lt;li&gt;Machine Learning&lt;/li&gt;
+          &lt;/ol&gt;
+          &lt;ol type="A"&gt;
+            &lt;li&gt;Fullstack Web&lt;/li&gt;
+            &lt;li&gt;Machine Learning&lt;/li&gt;
+          &lt;/ol&gt;
+          &lt;ol type="I"&gt;
+            &lt;li&gt;Fullstack Web&lt;/li&gt;
+            &lt;li&gt;Machine Learning&lt;/li&gt;
+          &lt;/ol&gt;
+        </code>
+      </pre>
+      <ol type="1">
+        <li>Fullstack Web</li>
+        <li>Machine Learning</li>
+      </ol>
+      <ol type="A">
+        <li>Fullstack Web</li>
+        <li>Machine Learning</li>
+      </ol>
+      <ol type="I">
+        <li>Fullstack Web</li>
+        <li>Machine Learning</li>
+      </ol>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>16. Definition list</strong>: Create a definition list with two
+        items. Each item has a description.
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;dl&gt;
+            &lt;dt&gt;Uku&lt;/dt&gt;
+            &lt;dd&gt;Male cat&lt;/dd&gt;
+            &lt;dt&gt;Lele&lt;/dt&gt;
+            &lt;dd&gt;Female cat&lt;/dd&gt;
+          &lt;/dl&gt;
+        </code>
+      </pre>
+      <dl>
+        <dt>Uku</dt>
+        <dd>Male cat</dd>
+        <dt>Lele</dt>
+        <dd>Female cat</dd>
+      </dl>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>17. Button</strong>:Create a button that pop up a window says
+        "Hi friend!" when click on it
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;button onclick="alert('Hi friend!');"&gt;Click me&lt;/button&gt;
+        </code>
+      </pre>
+      <button onclick="alert('Hi friend!');">Click me</button>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>18. Table</strong>: Create a table with two rows, three columns,
+        and headers.
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;table&gt;
+            &lt;tr&gt;
+              &lt;th&gt;Show&lt;/th&gt;
+              &lt;th&gt;Ranking&lt;/th&gt;
+              &lt;th&gt;Finished?&lt;/th&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Big Bang Theory&lt;/td&gt;
+              &lt;td&gt;4.5&lt;/td&gt;
+              &lt;td&gt;Yes&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Brooklyn 99&lt;/td&gt;
+              &lt;td&gt;5&lt;/td&gt;
+              &lt;td&gt;No&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/table&gt;
+        </code>
+      </pre>
+      <table>
+        <tr>
+          <th>Show</th>
+          <th>Ranking</th>
+          <th>Finished?</th>
+        </tr>
+        <tr>
+          <td>Big Bang Theory</td>
+          <td>4.5</td>
+          <td>Yes</td>
+        </tr>
+        <tr>
+          <td>Brooklyn 99</td>
+          <td>5</td>
+          <td>No</td>
+        </tr>
+      </table>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>19. Navigation Links</strong>: How to define a section with
+        navigation links.
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;nav&gt;
+            &lt;a href="#first-question"&gt;HTML comment&lt;/a&gt; |
+            &lt;a href="#second-question"&gt;Hyperlink 1&lt;/a&gt; |
+            &lt;a href="#third-question"&gt;Hyperlink 2&lt;/a&gt; |
+            &lt;a href="#forth-question"&gt;Hyperlink 3&lt;/a&gt;
+          &lt;/nav&gt;
+        </code>
+      </pre>
+      <nav>
+        <a href="#first-question">1. HTML comment</a> |
+        <a href="#second-question">2. Hyperlink 1</a> |
+        <a href="#third-question">3. Hyperlink 2</a> |
+        <a href="#forth-question">4. Hyperlink 3</a>
+      </nav>
+    </section>
+
+    <hr />
+
+    <section>
+      <p>
+        <strong>20. Toggable Detail</strong>: How to define a toggable block of
+        content with a summary and additional details.
+      </p>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;details&gt;
+            &lt;summary&gt;Read more&lt;/summary&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra nec nulla vitae mollis.&lt;/p&gt;
+          &lt;/details&gt;
+        </code>
+      </pre>
+      <details>
+        <summary>Read more</summary>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra
+          nec nulla vitae mollis.
+        </p>
+      </details>
+    </section>
+
+    <hr />
+
+    <section>
+      <p><strong>21. Form</strong>: Create a form that asks for:</p>
+      <ul>
+        <li>
+          Email, password and confirm password. Each of the field has a
+          arcording placeholder.
+        </li>
+        <li>Title (Radio box), 2 options: "Developer" or "Employer"</li>
+        <li>
+          Interested in (Checkbox), 3 options: "ReactJS", "NodeJS", "Web Design"
+        </li>
+        <li>City (Select box), 3 options: "Hanoi", "HCMC", "Da Nang"</li>
+        <li>Short Bio (Text area)</li>
+        <li>A confirm button which is disabled.</li>
+      </ul>
+      <p>Solution:</p>
+      <pre>
+        <code>
+          &lt;form&gt;
+            &lt;label&gt;Email:&lt;/label&gt;
+            &lt;br /&gt;
+            &lt;input
+              id="email"
+              type="text"
+              name="email"
+              placeholder="your@email.com"
+            /&gt;
+            &lt;br /&gt;
+            &lt;label&gt;Password:&lt;/label&gt;
+            &lt;br /&gt;
+            &lt;input type="text" name="password" placeholder="Select a password" /&gt;
+            &lt;br /&gt;
+            &lt;label&gt;Confirm Password:&lt;/label&gt;
+            &lt;br /&gt;
+            &lt;input
+              type="text"
+              name="cpassword"
+              placeholder="Retype your password"
+            /&gt;
+            &lt;br /&gt;&lt;br /&gt;
+    
+            &lt;label&gt;Title:&lt;/label&gt;
+            &lt;br /&gt;
+            &lt;label&gt;
+              &lt;input type="radio" name="title" value="developer" /&gt; Developer
+            &lt;/label&gt;
+            &lt;label&gt;
+              &lt;input type="radio" name="title" value="employer" /&gt; Employer
+            &lt;/label&gt;
+    
+            &lt;br /&gt;&lt;br /&gt;
+    
+            &lt;label&gt;Interested In:&lt;/label&gt;
+            &lt;br /&gt;
+            &lt;label&gt;
+              &lt;input type="checkbox" name="interested" value="reactjs" /&gt; ReactJS
+            &lt;/label&gt;
+            &lt;label&gt;
+              &lt;input type="checkbox" name="interested" value="nodejs" /&gt;
+              NodeJS
+            &lt;/label&gt;
+            &lt;label&gt;
+              &lt;input type="checkbox" name="interested" value="web-design" /&gt;
+              Web Design
+            &lt;/label&gt;
+    
+            &lt;br /&gt;&lt;br /&gt;
+    
+            &lt;label&gt;City:&lt;/label&gt;
+            &lt;br /&gt;
+            &lt;select name="city"&gt;
+              &lt;option value="Hanoi"&gt;Hanoi&lt;/option&gt;
+              &lt;option value="HCMC"&gt;HCMC&lt;/option&gt;
+              &lt;option value="Da Nang"&gt;Da Nang&lt;/option&gt;
+            &lt;/select&gt;
+    
+            &lt;br /&gt;&lt;br /&gt;
+    
+            &lt;label&gt;Short Bio:&lt;/label&gt;&lt;br /&gt;
+            &lt;textarea name="bio" cols="30" rows="10"&gt;&lt;/textarea&gt;&lt;br /&gt;
+    
+            &lt;input type="submit" disabled /&gt;
+          &lt;/form&gt;
+        </code>
+      </pre>
+
+      <form>
+        <label>Email:</label>
+        <br />
+        <input
+          id="email"
+          type="text"
+          name="email"
+          placeholder="your@email.com"
+        />
+        <br />
+        <label>Password:</label>
+        <br />
+        <input type="text" name="password" placeholder="Select a password" />
+        <br />
+        <label>Confirm Password:</label>
+        <br />
+        <input
+          type="text"
+          name="cpassword"
+          placeholder="Retype your password"
+        />
+        <br /><br />
+
+        <label>Title:</label>
+        <br />
+        <label>
+          <input type="radio" name="title" value="developer" /> Developer
+        </label>
+        <label>
+          <input type="radio" name="title" value="employer" /> Employer
+        </label>
+
+        <br /><br />
+
+        <label>Interested In:</label>
+        <br />
+        <label>
+          <input type="checkbox" name="interested" value="reactjs" /> ReactJS
+        </label>
+        <label>
+          <input type="checkbox" name="interested" value="nodejs" />
+          NodeJS
+        </label>
+        <label>
+          <input type="checkbox" name="interested" value="web-design" />
+          Web Design
+        </label>
+
+        <br /><br />
+
+        <label>City:</label>
+        <br />
+        <select name="city">
+          <option value="Hanoi">Hanoi</option>
+          <option value="HCMC">HCMC</option>
+          <option value="Da Nang">Da Nang</option>
+        </select>
+
+        <br /><br />
+
+        <label>Short Bio:</label><br />
+        <textarea name="bio" cols="30" rows="10"></textarea><br />
+
+        <input type="submit" disabled />
+      </form>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,136 @@
+:root {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+nav {
+  text-align: right;
+  padding: 20px 10px;
+}
+
+nav .nav-link {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.87);
+  margin-right: 20px;
+  font-size: 0.875rem;
+}
+
+nav .nav-icon {
+  margin-right: 20px;
+}
+
+/* Main */
+
+.google-logo {
+  padding: 10px 0;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 400px;
+  padding: 50px;
+}
+.search-box {
+  width: 60vw;
+  height: 45px;
+  padding: 5px 8px 0 14px;
+  border-radius: 30px;
+  border: 1px solid lightgray;
+  display: flex;
+  align-items: stretch;
+}
+.search-input {
+  flex-grow: 1;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.search-box:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.search-icon {
+  width: 24px;
+  top: -1px;
+  position: relative;
+  margin-right: 1em;
+}
+.google-mic {
+  width: 24px;
+  height: 24px;
+  position: relative;
+  /* left: -50px; */
+  top: 5px;
+}
+
+.button {
+  width: 150px;
+  height: 40px;
+  border: none;
+  margin: 11px 4px;
+  padding: 0 16px;
+  border-radius: 4px;
+  color: #5f6368;
+  background-color: #f2f2f2;
+  font-size: 14px;
+}
+.button:hover {
+  border: 1px solid #c6c6c6;
+}
+
+.languages a {
+  text-decoration: none;
+  color: #1a0dab;
+  margin-right: 20px;
+}
+
+/* Footer */
+
+footer .row {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f2f2f2;
+  line-height: 40px;
+  padding: 0 30px;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+footer .row a {
+  text-decoration: none;
+  color: black;
+  margin-right: 10px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive layout - when the screen is less than 600px wide */
+@media screen and (max-width: 650px) {
+  footer .row {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+}
