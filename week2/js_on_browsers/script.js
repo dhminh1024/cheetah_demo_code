@@ -37,10 +37,33 @@ function sectionTwo() {
   document
     .getElementById("s2-input-name")
     .addEventListener("keyup", function (event) {
+      console.log(event.key);
       var input = event.target;
       var span = input.parentNode.childNodes[3];
       var firstName = input.value.split(" ")[0];
       span.innerHTML = "First Name:" + firstName;
+    });
+
+  var maxLength = 10;
+
+  document
+    .getElementById("s2-input-email")
+    .addEventListener("keyup", function (event) {
+      var input = event.target;
+      var span = input.parentNode.childNodes[3];
+
+      if (event.key === " ") {
+        span.innerHTML = "Space is invalid";
+        span.style.color = "red";
+        input.value = input.value.trim();
+      }
+
+      if (input.value.length <= maxLength) {
+        span.style.color = "#2ecc71";
+        span.innerHTML = `${maxLength - input.value.length} characters left`;
+      } else {
+        input.value = input.value.slice(0, maxLength);
+      }
     });
 }
 
