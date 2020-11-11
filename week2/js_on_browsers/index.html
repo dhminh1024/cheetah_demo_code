@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato|Roboto"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Section One</h1>
+    <section id="s1">
+      <h2 id="s1-text">Javascript can change HTML content..</h2>
+      <button id="s1-btn-content" class="btn btn-blue">Change Content</button>
+      <i id="s1-icon" class="far fa-heart"></i>
+      <!-- <i class="fas fa-heart"></i> -->
+      <button id="s1-btn-attribute" class="btn btn-red">
+        Change Attribute
+      </button>
+      <button onclick="hideSectionOne()" class="btn btn-yellow">
+        Hide Buttons
+      </button>
+    </section>
+
+    <h1>Section two</h1>
+    <section id="s2">
+      <div class="input-group">
+        <input id="s2-input-name" type="text" placeholder="Name" />
+        <span>First Name:</span>
+      </div>
+      <div class="input-group">
+        <input id="s2-input-email" type="text" placeholder="Email" />
+        <span>Maximum 10 characters</span>
+      </div>
+      <button id="s2-btn-reset" class="btn btn-red">Reset</button>
+    </section>
+    <!-- <script type="text/javascript">
+      console.log("Hello JavaScript");
+    </script> -->
+    <script src="script.js"></script>
+  </body>
+</html>
