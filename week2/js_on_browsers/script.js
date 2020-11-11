@@ -56,6 +56,7 @@ function sectionTwo() {
         span.innerHTML = "Space is invalid";
         span.style.color = "red";
         input.value = input.value.trim();
+        return;
       }
 
       if (input.value.length <= maxLength) {
@@ -68,3 +69,22 @@ function sectionTwo() {
 }
 
 sectionTwo();
+
+function addItem() {
+  var item = document.createElement("li");
+  var checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  var label = document.createElement("label");
+  label.innerHTML = "New Item";
+  label.insertBefore(checkbox, label.childNodes[0]);
+
+  item.appendChild(label);
+
+  document.getElementById("s3-list").appendChild(item);
+}
+
+function sectionThree() {
+  document.getElementById("s3-btn-add").addEventListener("click", addItem);
+}
+
+sectionThree();
