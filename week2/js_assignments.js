@@ -21,4 +21,27 @@ function assignment1() {
   console.log(s);
 }
 
-assignment1();
+// assignment1();
+
+function assignment2(n) {
+  for (var i = 1; i < n + 1; i++) {
+    var s = "";
+    for (var j = 0; j < i; j++) {
+      s = s + i + " ";
+    }
+    console.log(s);
+  }
+  for (var i = 0; i < 8; i++) {
+    var s = "";
+    for (var j = 0; j < 8; j++) {
+      if ((i + j) % 2 === 0) {
+        s = s + " ";
+      } else {
+        s = s + "#";
+      }
+    }
+    console.log(s);
+  }
+}
+
+assignment2(5);
