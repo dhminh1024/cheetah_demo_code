@@ -121,4 +121,143 @@ function getNumbers() {
   console.log("Even numbers", evenNumbers);
   console.log("Odd numbers", oddNumbers);
 }
-getNumbers();
+// getNumbers();
+
+// Assignment 5
+
+function greeting(user) {
+  return `Hi, my name is ${user.name}, my email is ${user.email}`;
+}
+
+function listOfTasks(user) {
+  function printTasks(status) {
+    console.log(status);
+    for (let index = 0; index < user.tasks.length; index++) {
+      const task = user.tasks[index];
+      if (task.status === status) {
+        console.log(`- ${task.name}`);
+      }
+    }
+  }
+  // Print out all of Not Started task
+  printTasks("Not Started");
+  // Print out all of In Progress task
+  printTasks("In Progress");
+  // Print out all of Done
+  printTasks("Done");
+}
+
+function generateOneTask(i) {
+  let obj = {};
+  obj.name = `Task ${i}`;
+  obj.status = getRandomItem(["Not Started", "In Progress", "Done"]);
+  return obj;
+  return {
+    name: `Task ${i}`,
+    status: getRandomItem(["Not Started", "In Progress", "Done"]),
+  };
+}
+
+function generateFakeTasks(n) {
+  let result = [];
+  for (let i = 0; i < n; i++) {
+    result.push(generateOneTask(i));
+  }
+  return result;
+}
+
+function assignment5() {
+  var userA = {
+    id: 123456,
+    name: "Peter Parker",
+    email: "peter.parker@gmail.com",
+    role: "student",
+    courseId: 112233,
+  };
+
+  console.log("Keys", Object.keys(userA).length);
+  console.log(typeof userA.id);
+  console.log(typeof userA.name);
+  userA.email = "pparker@gmail.com";
+  console.log(greeting(userA));
+  userA.tasks = generateFakeTasks(5);
+  userA.tasks.push({ name: "Test Task", status: "Not Started" });
+  listOfTasks(userA);
+}
+// assignment5();
+
+// Assignment 6
+
+var variousThings = [
+  true,
+  true,
+  true,
+  false,
+  true,
+  true,
+  1,
+  true,
+  true,
+  false,
+  true,
+  false,
+  true,
+  "hello",
+  false,
+  true,
+  true,
+  true,
+  true,
+  true,
+  false,
+  false,
+  "world",
+  true,
+];
+function findFirstString(array) {
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    if (typeof element === "string") {
+      console.log(element);
+      return;
+    }
+  }
+}
+findFirstString(variousThings);
+
+var emails = ["  PETER@gmail.com", "Mia1024@gmail.COM  ", " Dorian@gmail.com "];
+
+function normalizeEmails(emails) {
+  let result = [];
+  for (let index = 0; index < emails.length; index++) {
+    let email = emails[index];
+    email = email.toLowerCase();
+    email = email.trim();
+    result.push(email);
+    // result.push(email.toLowerCase().trim());
+  }
+  return result;
+}
+
+// console.log(normalizeEmails(emails));
+
+function splitNames(fullName) {
+  let firstName = fullName.split(" ")[0];
+  let lastName = fullName.split(" ").slice(1).join(" ");
+  console.log(fullName.split(" "));
+  return { firstName, lastName };
+}
+
+console.log(splitNames("Peter van Parker"));
+
+function getRandomString(length) {
+  let characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  let result = "";
+  for (let index = 0; index < length; index++) {
+    result += getRandomItem(characters);
+  }
+  return result;
+}
+
+// console.log(getRandomString(10));
