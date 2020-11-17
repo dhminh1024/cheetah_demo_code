@@ -16,7 +16,7 @@ function shorthandPropertyNames() {
   };
 }
 
-// console.log(shorthandPropertyNames());
+console.log(shorthandPropertyNames());
 
 function methodShorthand() {
   // refactor using method shorthand
@@ -81,7 +81,7 @@ function temporalDeadZone() {
   return { myVars, myLets, myConsts };
 }
 
-console.log(temporalDeadZone());
+// console.log(temporalDeadZone());
 
 function immutable() {
   // what is returned?
