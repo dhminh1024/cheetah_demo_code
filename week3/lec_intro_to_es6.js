@@ -333,4 +333,28 @@ function arrowFunctionAsMethod() {
 
   person.sayName();
 }
-arrowFunctionAsMethod();
+// arrowFunctionAsMethod();
+
+function mergeObjects() {
+  // what does this return?
+  const obj1 = {
+    a: "a from obj1",
+    b: "b from obj1",
+    c: "c from obj1",
+    d: {
+      e: "e from obj1",
+      f: "f from obj1",
+    },
+  };
+  const obj2 = {
+    b: "b from obj2",
+    c: "c from obj2",
+    d: {
+      g: "g from obj2",
+      h: "g from obj2",
+    },
+  };
+  const result = { ...obj1, ...obj2 };
+  return result;
+}
+console.log(mergeObjects());
