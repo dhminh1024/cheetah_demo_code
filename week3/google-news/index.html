@@ -15,12 +15,12 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-
-    <title>Hello, world!</title>
+    <link rel="stylesheet" href="style.css" />
+    <title>Google News</title>
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light">
+      <nav class="navbar navbar-light bg-light position-fixed navbar-fixed">
         <a class="navbar-brand"
           ><img
             src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
@@ -45,17 +45,18 @@
     <main class="container-fluid">
       <div class="row">
         <div class="col-md-3 col-lg-2">
-          <nav class="nav flex-column d-none d-md-block">
-            <a class="nav-link active" href="#">Active</a>
-            <a class="nav-link" href="#">Link</a>
-            <a class="nav-link" href="#">Link</a>
-            <a
-              class="nav-link disabled"
-              href="#"
-              tabindex="-1"
-              aria-disabled="true"
-              >Disabled</a
-            >
+          <nav
+            class="nav flex-column d-none d-md-block position-fixed sidemenu"
+          >
+            <a class="nav-link" href="#">Top Stories</a>
+            <div class="hr-line"></div>
+            <a class="nav-link" href="#">Business</a>
+            <a class="nav-link" href="#">Technology</a>
+            <a class="nav-link" href="#">Entertainment</a>
+            <a class="nav-link" href="#">Sports</a>
+            <a class="nav-link" href="#">Science</a>
+            <a class="nav-link" href="#">Health</a>
+            <div class="hr-line"></div>
           </nav>
         </div>
         <div class="col-sm-12 col-md-9 col-lg-10">
@@ -111,7 +112,7 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
-
+    <script src="script.js"></script>
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
