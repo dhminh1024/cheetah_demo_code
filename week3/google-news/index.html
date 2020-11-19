@@ -103,6 +103,20 @@
               >Health</a
             >
             <div class="hr-line"></div>
+            <div>
+              <button
+                type="button"
+                class="btn btn-outline-success m-1"
+                onclick='handleSourceClicked("all")'
+              >
+                All articles
+                <span id="counter" class="badge badge-success"></span>
+              </button>
+            </div>
+            <div
+              id="source-list"
+              class="d-flex flex-wrap align-content-around"
+            ></div>
           </nav>
         </div>
         <div class="col-sm-12 col-md-9 col-lg-10">
@@ -142,6 +156,12 @@
               <img src="..." class="ml-3" alt="..." />
             </li>
           </ul>
+          <button
+            class="btn btn-outline-primary w-25"
+            onclick="handleLoadMoreClick()"
+          >
+            Load more
+          </button>
         </div>
       </div>
     </main>

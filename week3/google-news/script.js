@@ -1,13 +1,39 @@
 let currentSidemenu = "top-stories";
 const API_KEY = "1b50730b754f46618060e2353ce40222";
 let newsList = [];
+const urlOptions = {
+  country: "us",
+  category: "",
+  q: "",
+  page: 1,
+};
 
-const getArticles = async () => {
-  const url = `http://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`;
-  const response = await fetch(url);
+const getURL = (urlOptions) => {
+  let url = Object.keys(urlOptions).reduce((url, option) => {
+    if (urlOptions[option]) {
+      url += `${option}=${urlOptions[option]}&`;
+    }
+    return url;
+  }, "http://newsapi.org/v2/top-headlines?");
+  url += `apiKey=${API_KEY}`;
+  return url;
+};
+// console.log(getURL(urlOptions));
+
+const getArticles = async (addToList = false) => {
+  if (!addToList) {
+    urlOptions.page = 1;
+  }
+  const response = await fetch(getURL(urlOptions));
   const data = await response.json();
-  newsList = data.articles;
+  if (!addToList) {
+    newsList = data.articles;
+  } else {
+    newsList = [...newsList, ...data.articles];
+  }
   renderArticles(newsList);
+  renderSources();
+  document.getElementById("counter").innerHTML = newsList.length;
 };
 
 const renderArticles = (newsList) => {
@@ -17,6 +43,7 @@ const renderArticles = (newsList) => {
       <div class="media-body">
         <h5 class="mt-0 mb-1">${news.title}</h5>
         <p>${news.content}</p>
+        <span class="badge badge-info">${news.source.name}</span>
         <div>
           <a href="${news.url}" target="_blank">View Full Coverage</a>
         </div>
@@ -27,6 +54,30 @@ const renderArticles = (newsList) => {
     .join("");
   document.getElementById("news-list").innerHTML = newsListHTML;
 };
+
+const renderSources = () => {
+  const sourceCounter = {};
+
+  newsList.forEach((item) => {
+    if (!(item.source.name in sourceCounter)) {
+      sourceCounter[item.source.name] = 1;
+    } else {
+      sourceCounter[item.source.name] += 1;
+    }
+  });
+
+  const sourceListHTML = Object.keys(sourceCounter)
+    .map(
+      (source) =>
+        `<button type="button" class="btn btn-outline-dark m-1" onclick='handleSourceClicked("${source}")'>
+          ${source} <span class="badge badge-info">${sourceCounter[source]}</span>
+         </button>`
+    )
+    .join("");
+
+  document.getElementById("source-list").innerHTML = sourceListHTML;
+};
+
 getArticles();
 
 const putActiveClass = (category) => {
@@ -43,33 +94,36 @@ const handleClickSidemenu = async (category) => {
   putActiveClass(category);
 
   // Load data from the category
-  document.getElementById("news-list").innerHTML = "Loading...";
-  const url = `http://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=${API_KEY}`;
-  const response = await fetch(url);
-  const data = await response.json();
-  newsList = data.articles;
-  renderArticles(newsList);
+  if (category === "top-stories") {
+    urlOptions.category = "";
+  } else {
+    urlOptions.category = category;
+  }
+  getArticles();
 };
 
 const handleSearchClick = async () => {
   try {
     const q = document.getElementById("search-input").value;
-    document.getElementById("news-list").innerHTML = "Loading...";
-    let url;
-    if (currentSidemenu !== "top-stories") {
-      url = `http://newsapi.org/v2/top-headlines?country=us&category=${currentSidemenu}&q=${q}&apiKey=${API_KEY}`;
-    } else {
-      url = `http://newsapi.org/v2/top-headlines?country=us&q=${q}&apiKey=${API_KEY}`;
-    }
-    console.log(url);
-    const response = await fetch(url);
-    const data = await response.json();
-    newsList = data.articles;
-    console.log({ q, newsList });
-    renderArticles(newsList);
+    urlOptions.q = q;
+    getArticles();
   } catch (error) {
     console.log(error);
   }
+};
+
+const handleSourceClicked = (source) => {
+  if (source === "all") {
+    renderArticles(newsList);
+  } else {
+    let filteredNews = newsList.filter((news) => news.source.name === source);
+    renderArticles(filteredNews);
+  }
+};
+
+const handleLoadMoreClick = () => {
+  urlOptions.page += 1;
+  getArticles(true);
 };
 
 putActiveClass(currentSidemenu);
