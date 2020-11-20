@@ -1,11 +1,25 @@
-let currentSidemenu = "top-stories";
 const API_KEY = "1b50730b754f46618060e2353ce40222";
+// const URL = `http://newsapi.org/v2/top-headlines?country=us&apiKey=${API_KEY}`;
+
 let newsList = [];
+let endpoint = "top-headlines";
 const urlOptions = {
   country: "us",
   category: "",
-  q: "",
   page: 1,
+  q: "",
+};
+
+let currentSideMenu = "top-stories";
+
+const putActiveClass = (category) => {
+  document.getElementById(currentSideMenu).classList.remove("active");
+  document.getElementById(category).classList.add("active");
+  document.getElementById("category-title").innerHTML = category
+    .split("-")
+    .join(" ")
+    .toUpperCase();
+  currentSideMenu = category;
 };
 
 const getURL = (urlOptions) => {
@@ -14,23 +28,24 @@ const getURL = (urlOptions) => {
       url += `${option}=${urlOptions[option]}&`;
     }
     return url;
-  }, "http://newsapi.org/v2/top-headlines?");
+  }, `http://newsapi.org/v2/${endpoint}?`);
   url += `apiKey=${API_KEY}`;
   return url;
 };
-// console.log(getURL(urlOptions));
 
 const getArticles = async (addToList = false) => {
+  console.log({ urlOptions, addToList });
   if (!addToList) {
     urlOptions.page = 1;
+    newsList = [];
   }
+
+  document.getElementById("news-list").innerHTML = "Loading..";
   const response = await fetch(getURL(urlOptions));
   const data = await response.json();
-  if (!addToList) {
-    newsList = data.articles;
-  } else {
-    newsList = [...newsList, ...data.articles];
-  }
+  console.log(data);
+  newsList = [...newsList, ...data.articles];
+
   renderArticles(newsList);
   renderSources();
   document.getElementById("counter").innerHTML = newsList.length;
@@ -39,19 +54,22 @@ const getArticles = async (addToList = false) => {
 const renderArticles = (newsList) => {
   const newsListHTML = newsList
     .map((news) => {
-      return `<li class="media">
+      return `<li class="media my-4">
       <div class="media-body">
-        <h5 class="mt-0 mb-1">${news.title}</h5>
+        <h4 class="mt-0 mb-1">${news.title}</h4>
         <p>${news.content}</p>
-        <span class="badge badge-info">${news.source.name}</span>
-        <div>
-          <a href="${news.url}" target="_blank">View Full Coverage</a>
+        <span class="badge badge-info">${news.source.name}</span> -
+        <span class="published-at">${moment(news.publishedAt).fromNow()}</span>
+        <div class="mt-4">
+          <img class="view-more-ico" src="https://lh3.googleusercontent.com/JDFOyo903E9WGstK0YhI2ZFOKR3h4qDxBngX5M8XJVBZFKzOBoxLmk3OVlgNw9SOE-HfkNgb=w32-rw" alt="icon view more"/>
+          <a href="${news.url}">View Full Coverage</a>
         </div>
       </div>
-      <img src="${news.urlToImage}" class="ml-3" alt="..." />
+      <img class="ml-3" src="${news.urlToImage}" alt="Image article" />
     </li>`;
     })
     .join("");
+
   document.getElementById("news-list").innerHTML = newsListHTML;
 };
 
@@ -78,41 +96,7 @@ const renderSources = () => {
   document.getElementById("source-list").innerHTML = sourceListHTML;
 };
 
-getArticles();
-
-const putActiveClass = (category) => {
-  document.getElementById(currentSidemenu).classList.remove("active");
-  document.getElementById(category).classList.add("active");
-  document.getElementById("category-title").innerHTML = category
-    .split("-")
-    .join(" ")
-    .toUpperCase();
-  currentSidemenu = category;
-};
-
-const handleClickSidemenu = async (category) => {
-  putActiveClass(category);
-
-  // Load data from the category
-  if (category === "top-stories") {
-    urlOptions.category = "";
-  } else {
-    urlOptions.category = category;
-  }
-  getArticles();
-};
-
-const handleSearchClick = async () => {
-  try {
-    const q = document.getElementById("search-input").value;
-    urlOptions.q = q;
-    getArticles();
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-const handleSourceClicked = (source) => {
+let handleSourceClicked = (source) => {
   if (source === "all") {
     renderArticles(newsList);
   } else {
@@ -121,9 +105,28 @@ const handleSourceClicked = (source) => {
   }
 };
 
+const handleClickSideMenu = (category) => {
+  putActiveClass(category);
+  if (category === "top-stories") {
+    urlOptions.category = "";
+  } else {
+    urlOptions.category = category;
+  }
+  getArticles();
+};
+
 const handleLoadMoreClick = () => {
   urlOptions.page += 1;
   getArticles(true);
 };
 
-putActiveClass(currentSidemenu);
+const handleSearchClick = () => {
+  let query = document.getElementById("search-input").value;
+  urlOptions.q = query;
+  console.log(urlOptions);
+  getArticles();
+};
+
+// Get articles for the first time
+putActiveClass(currentSideMenu);
+getArticles();

@@ -11,23 +11,26 @@
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="style.css" />
+
     <title>Google News</title>
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-light bg-light position-fixed navbar-fixed">
-        <a class="navbar-brand"
-          ><img
+      <nav
+        class="navbar navbar-light bg-light justify-content-between position-fixed navbar-fixed"
+      >
+        <a class="navbar-brand">
+          <img
             src="https://www.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_74x24px.svg"
-            alt="google icon"
+            alt="google-logo"
           />
-          News</a
-        >
+          News
+        </a>
         <form class="form-inline">
           <input
             id="search-input"
@@ -47,59 +50,57 @@
     </header>
 
     <main class="container-fluid">
-      <div class="row">
-        <div class="col-md-3 col-lg-2">
-          <nav
-            class="nav flex-column d-none d-md-block position-fixed sidemenu"
-          >
+      <div class="row mt-2">
+        <div class="col-md-3 col-lg-2 d-none d-md-block">
+          <nav class="nav flex-column position-fixed sidemenu">
             <a
               id="top-stories"
               class="nav-link"
               href="#"
-              onclick="handleClickSidemenu('top-stories')"
-              >Top Stories</a
+              onclick='handleClickSideMenu("top-stories")'
+              >Top stories</a
             >
             <div class="hr-line"></div>
             <a
               id="business"
               class="nav-link"
               href="#"
-              onclick="handleClickSidemenu('business')"
+              onclick='handleClickSideMenu("business")'
               >Business</a
             >
             <a
               id="technology"
               class="nav-link"
               href="#"
-              onclick="handleClickSidemenu('technology')"
+              onclick='handleClickSideMenu("technology")'
               >Technology</a
             >
             <a
               id="entertainment"
               class="nav-link"
               href="#"
-              onclick="handleClickSidemenu('entertainment')"
+              onclick='handleClickSideMenu("entertainment")'
               >Entertainment</a
             >
             <a
               id="sports"
               class="nav-link"
               href="#"
-              onclick="handleClickSidemenu('sports')"
+              onclick='handleClickSideMenu("sports")'
               >Sports</a
             >
             <a
               id="science"
               class="nav-link"
               href="#"
-              onclick="handleClickSidemenu('science')"
+              onclick='handleClickSideMenu("science")'
               >Science</a
             >
             <a
               id="health"
               class="nav-link"
               href="#"
-              onclick="handleClickSidemenu('health')"
+              onclick='handleClickSideMenu("health")'
               >Health</a
             >
             <div class="hr-line"></div>
@@ -120,70 +121,44 @@
           </nav>
         </div>
         <div class="col-sm-12 col-md-9 col-lg-10">
-          <h3 id="category-title"></h3>
-          <ul id="news-list" class="list-unstyled">
-            <li class="media">
-              <div class="media-body">
-                <h5 class="mt-0 mb-1">Media object</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
-                nisi vulputate fringilla. Donec lacinia congue felis in
-                faucibus.
+          <section class="container">
+            <div class="row justify-content-center">
+              <div
+                class="col-md-12 col-lg-9 d-flex flex-column align-items-center"
+              >
+                <h3 id="category-title" class="text-left align-self-start"></h3>
+                <ul id="news-list" class="list-unstyled"></ul>
+                <button
+                  class="btn btn-outline-primary w-25"
+                  onclick="handleLoadMoreClick()"
+                >
+                  Load more
+                </button>
               </div>
-              <img src="..." class="ml-3" alt="..." />
-            </li>
-            <li class="media">
-              <div class="media-body">
-                <h5 class="mt-0 mb-1">Media object</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
-                nisi vulputate fringilla. Donec lacinia congue felis in
-                faucibus.
-              </div>
-              <img src="..." class="ml-3" alt="..." />
-            </li>
-            <li class="media">
-              <div class="media-body">
-                <h5 class="mt-0 mb-1">Media object</h5>
-                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                scelerisque ante sollicitudin. Cras purus odio, vestibulum in
-                vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
-                nisi vulputate fringilla. Donec lacinia congue felis in
-                faucibus.
-              </div>
-              <img src="..." class="ml-3" alt="..." />
-            </li>
-          </ul>
-          <button
-            class="btn btn-outline-primary w-25"
-            onclick="handleLoadMoreClick()"
-          >
-            Load more
-          </button>
+            </div>
+          </section>
         </div>
       </div>
     </main>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
       crossorigin="anonymous"
     ></script>
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
       crossorigin="anonymous"
     ></script>
     <script src="script.js"></script>
-    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
   </body>
 </html>
