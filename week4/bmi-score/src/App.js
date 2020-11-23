@@ -11,6 +11,7 @@ function App() {
   return (
     <Container>
       <BMICalculator />
+      <Greeting name="Minh" />
     </Container>
   );
 }

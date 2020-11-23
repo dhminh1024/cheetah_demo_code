@@ -4,6 +4,7 @@ const BMICalculator = () => {
   const [result, setResult] = useState("Result:");
   const [height, setHeight] = useState(0);
   const [weight, setWeight] = useState(0);
+  const [history, setHistory] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,7 +24,11 @@ const BMICalculator = () => {
     } else {
       bmiType = "obese";
     }
-    setResult(`Result: ${bmiScore} - ${bmiType}`);
+    // setResult(`Result: ${bmiScore} - ${bmiType}`);
+    // don't do this
+    // history.push(`Result: ${bmiScore} - ${bmiType}`);
+    setHistory([...history, `Result: ${bmiScore} - ${bmiType}`]);
+    // console.log(history);
   };
 
   const handleHeightChange = (e) => {
@@ -64,7 +69,11 @@ const BMICalculator = () => {
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
-        {result}
+        <ul>
+          {history.map((result, index) => (
+            <li key={index}>{result}</li>
+          ))}
+        </ul>
       </form>
     </div>
   );
