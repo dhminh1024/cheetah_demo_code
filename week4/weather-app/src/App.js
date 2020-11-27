@@ -5,6 +5,7 @@ import { Col, Container, Row } from "react-bootstrap";
 import PublicNavbar from "./components/PublicNavbar";
 import SideMenu from "./components/SideMenu";
 import WeatherInfo from "./components/WeatherInfo";
+import Counter from "./components/Counter";
 
 const API_KEY = "24a50225c459b3b6b8cafba62baedc58";
 
@@ -138,7 +139,8 @@ function App() {
 
   return (
     <>
-      <PublicNavbar />
+      <Counter />
+      {/* <PublicNavbar />
       <Container>
         <Row>
           <Col md={3}>
@@ -151,8 +153,8 @@ function App() {
           <Col md={9}>
             <WeatherInfo weather={weather} />
           </Col>
-        </Row>
-      </Container>
+        </Row> 
+      </Container>*/}
     </>
   );
 }
