@@ -39,7 +39,7 @@ const BookDetailPage = () => {
       setLoading(false);
     };
     postData();
-  }, [addingBook, book]);
+  }, [addingBook]);
 
   useEffect(() => {
     const fetchData = async () => {
