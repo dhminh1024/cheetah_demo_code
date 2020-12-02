@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+import api from "../apiService";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
@@ -21,15 +22,9 @@ const ReadingPage = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        let url = `${BACKEND_API}/favorites`;
-        const res = await fetch(url);
-        if (res.ok) {
-          const data = await res.json();
-          setBooks(data);
-          setErrorMessage("");
-        } else {
-          setErrorMessage("Something doesn't work on the server side");
-        }
+        const res = await api.get(`/favorites`);
+        setBooks(res.data);
+        setErrorMessage("");
       } catch (error) {
         setErrorMessage(error.message);
       }

@@ -7,11 +7,13 @@ import BookDetailPage from "./pages/BookDetailPage";
 import ReadingPage from "./pages/ReadingPage";
 import HomePage from "./pages/HomePage";
 import NotFoundPage from "./pages/NotFoundPage";
+import AlertMsg from "./components/AlertMsg";
 
 function App() {
   return (
     <Router>
       <PublicNavbar />
+      <AlertMsg />
       <Switch>
         <Route exact path="/books/:id" component={BookDetailPage} />
         <Route exact path="/reading" component={ReadingPage} />

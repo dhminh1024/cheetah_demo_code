@@ -3,6 +3,7 @@ import { Alert, Card, Col, Container, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import PaginationBar from "../components/PaginationBar";
 import SearchForm from "../components/SearchForm";
+import api from "../apiService";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
@@ -37,16 +38,11 @@ const HomePage = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        let url = `${BACKEND_API}/books?_page=${pageNum}&_limit=${limit}`;
+        let url = `/books?_page=${pageNum}&_limit=${limit}`;
         if (query) url += `&q=${query}`;
-        const res = await fetch(url);
-        if (res.ok) {
-          const data = await res.json();
-          setBooks(data);
-          setErrorMessage("");
-        } else {
-          setErrorMessage("Something doesn't work on the server side");
-        }
+        const res = await api.get(url);
+        setBooks(res.data);
+        setErrorMessage("");
       } catch (error) {
         setErrorMessage(error.message);
       }

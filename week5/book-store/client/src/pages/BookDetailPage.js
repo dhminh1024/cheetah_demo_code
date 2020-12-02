@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Alert, Button, Col, Container, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import api from "../apiService";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
@@ -21,18 +23,9 @@ const BookDetailPage = () => {
       if (!addingBook) return;
       setLoading(true);
       try {
-        let url = `${BACKEND_API}/favorites`;
-        const res = await fetch(url, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(addingBook),
-        });
-        if (res.ok) {
-          setErrorMessage("");
-        } else {
-          const error = await res.text();
-          setErrorMessage(error.split("/n")[0]);
-        }
+        const res = await api.post(`/favorites`, addingBook);
+        setErrorMessage("");
+        toast.success("The book is added to reading list");
       } catch (error) {
         setErrorMessage(error.message);
       }
@@ -45,15 +38,9 @@ const BookDetailPage = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        let url = `${BACKEND_API}/books/${params.id}`;
-        const res = await fetch(url);
-        if (res.ok) {
-          const data = await res.json();
-          setBook(data);
-          setErrorMessage("");
-        } else {
-          setErrorMessage("Something doesn't work on the server side");
-        }
+        const res = await api.get(`/books/${params.id}`);
+        setBook(res.data);
+        setErrorMessage("");
       } catch (error) {
         setErrorMessage(error.message);
       }

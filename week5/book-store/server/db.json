@@ -21,6 +21,28 @@
       "title": "Things Fall Apart",
       "year": 1958,
       "id": "8F627C92410"
+    },
+    {
+      "author": "Unknown",
+      "country": "Sumer and Akkadian Empire",
+      "imageLink": "images/the-epic-of-gilgamesh.jpg",
+      "language": "Akkadian",
+      "link": "https://en.wikipedia.org/wiki/Epic_of_Gilgamesh\n",
+      "pages": 160,
+      "title": "The Epic Of Gilgamesh",
+      "year": -1700,
+      "id": "4F45963BC33"
+    },
+    {
+      "author": "Unknown",
+      "country": "India/Iran/Iraq/Egypt/Tajikistan",
+      "imageLink": "images/one-thousand-and-one-nights.jpg",
+      "language": "Arabic",
+      "link": "https://en.wikipedia.org/wiki/One_Thousand_and_One_Nights\n",
+      "pages": 288,
+      "title": "One Thousand and One Nights",
+      "year": 1200,
+      "id": "BFECD288E75"
     }
   ],
   "books": [
