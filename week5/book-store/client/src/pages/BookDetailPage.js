@@ -13,7 +13,7 @@ const BookDetailPage = () => {
   console.log(params.id);
 
   const addToReadingList = (book) => {
-    setAddingBook(true);
+    setAddingBook(book);
   };
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const BookDetailPage = () => {
         const res = await fetch(url, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(book),
+          body: JSON.stringify(addingBook),
         });
         if (res.ok) {
           setErrorMessage("");
