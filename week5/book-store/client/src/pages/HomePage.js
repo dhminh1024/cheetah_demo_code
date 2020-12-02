@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Alert, Col, Container, Row } from "react-bootstrap";
+import { Alert, Card, Col, Container, Row } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import PaginationBar from "../components/PaginationBar";
 import SearchForm from "../components/SearchForm";
+
+const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 const HomePage = () => {
   const [books, setBooks] = useState([]);
@@ -35,7 +37,7 @@ const HomePage = () => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        let url = `http://localhost:5000/books?_page=${pageNum}&_limit=${limit}`;
+        let url = `${BACKEND_API}/books?_page=${pageNum}&_limit=${limit}`;
         if (query) url += `&q=${query}`;
         const res = await fetch(url);
         if (res.ok) {
@@ -57,7 +59,7 @@ const HomePage = () => {
     <Container>
       <Row className="justify-content-center">
         <Col md={6}>
-          <h1>Book Store</h1>
+          <h1 className="text-center">Book Store</h1>
           {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
           <SearchForm
             loading={loading}
@@ -77,9 +79,26 @@ const HomePage = () => {
         {loading ? (
           <div>Loading..</div>
         ) : (
-          <ul>
+          <ul className="d-flex flex-wrap justify-content-between">
             {books.map((book) => (
-              <li onClick={() => handleClickBook(book.id)}>{book.title}</li>
+              <li key={book.id} onClick={() => handleClickBook(book.id)}>
+                <Card
+                  style={{
+                    width: "12rem",
+                    height: "27rem",
+                    marginBottom: "2rem",
+                  }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={`${BACKEND_API}/${book.imageLink}`}
+                  />
+                  <Card.Body>
+                    <Card.Title>{book.title}</Card.Title>
+                    <Card.Text>@{book.author}</Card.Text>
+                  </Card.Body>
+                </Card>
+              </li>
             ))}
           </ul>
         )}

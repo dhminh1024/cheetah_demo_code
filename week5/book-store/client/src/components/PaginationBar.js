@@ -20,7 +20,7 @@ const PaginationBar = ({ pageNum, setPageNum, totalPageNum }) => {
     setPageNum(page);
   };
   return (
-    <Pagination className="mt-3">
+    <Pagination className="mt-3 justify-content-center">
       <Pagination.First disabled={pageNum === 1} onClick={handleClickOnFirst} />
       <Pagination.Prev disabled={pageNum === 1} onClick={handleClickOnPrev} />
       <Pagination.Item

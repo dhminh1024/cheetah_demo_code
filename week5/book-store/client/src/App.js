@@ -1,7 +1,6 @@
 import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
 import PublicNavbar from "./components/PublicNavbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import BookDetailPage from "./pages/BookDetailPage";
