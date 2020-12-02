@@ -1,12 +1,26 @@
 {
   "favorites": [
     {
-      "id": 1,
-      "title": "T1"
+      "author": "Dante Alighieri",
+      "country": "Italy",
+      "imageLink": "images/the-divine-comedy.jpg",
+      "language": "Italian",
+      "link": "https://en.wikipedia.org/wiki/Divine_Comedy\n",
+      "pages": 928,
+      "title": "The Divine Comedy",
+      "year": 1315,
+      "id": "9471F309642"
     },
     {
-      "id": 3,
-      "title": "T3"
+      "author": "Chinua Achebe",
+      "country": "Nigeria",
+      "imageLink": "images/things-fall-apart.jpg",
+      "language": "English",
+      "link": "https://en.wikipedia.org/wiki/Things_Fall_Apart\n",
+      "pages": 209,
+      "title": "Things Fall Apart",
+      "year": 1958,
+      "id": "8F627C92410"
     }
   ],
   "books": [
