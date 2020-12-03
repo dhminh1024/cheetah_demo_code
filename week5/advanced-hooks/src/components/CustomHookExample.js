@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 // without custom hook
 const CustomHookExample = () => {
   const [count, setCount] = useState(0);
-  const [book, setBook] = useLocalStorageState("book", {
+  const [book, setBook] = useState({
     title: "",
     author: "",
   });
