@@ -6,6 +6,7 @@ import UseRefExample from "./components/UseRefExample";
 const App = () => {
   return (
     <div>
+      <h1>Advanced Hooks</h1>
       <CustomHookExample />
       <UseRefExample />
       <UseMemoExample />
