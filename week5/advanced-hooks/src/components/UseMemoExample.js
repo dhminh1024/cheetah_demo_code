@@ -2,23 +2,28 @@ import React, { useState, useEffect, useMemo } from "react";
 
 const UseMemoExample = () => {
   const [number, setNumber] = useState(0);
-  const double = expensiveCalculate(number);
+
+  const double = useMemo(() => {
+    return expensiveCalculate(number);
+  }, [number]);
 
   const [light, setLight] = useState(true);
 
-  const themeStyles = {
-    marginTop: "10px",
-    width: "100px",
-    height: "100px",
-    border: "1px solid black",
-    textAlign: "center",
-    backgroundColor: light ? "white" : "black",
-    color: light ? "black" : "white",
-  };
+  const themeStyles = useMemo(() => {
+    return {
+      marginTop: "10px",
+      width: "100px",
+      height: "100px",
+      border: "1px solid black",
+      textAlign: "center",
+      backgroundColor: light ? "white" : "black",
+      color: light ? "black" : "white",
+    };
+  }, [light]);
 
-  // useEffect(() => {
-  //   console.log("Theme Changed");
-  // }, [themeStyles]);
+  useEffect(() => {
+    console.log("Theme Changed");
+  }, [themeStyles]);
 
   function expensiveCalculate(number) {
     for (let i = 0; i < 1000000000; i++) {}

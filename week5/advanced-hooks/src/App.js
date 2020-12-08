@@ -7,8 +7,8 @@ const App = () => {
   return (
     <div>
       <h1>Advanced Hooks</h1>
-      <CustomHookExample />
-      <UseRefExample />
+      {/* <CustomHookExample /> */}
+      {/* <UseRefExample /> */}
       <UseMemoExample />
     </div>
   );

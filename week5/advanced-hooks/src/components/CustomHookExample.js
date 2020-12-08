@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from "react";
 
-// without custom hook
-const CustomHookExample = () => {
-  const [count, setCount] = useState(0);
-  const [book, setBook] = useState({
-    title: "",
-    author: "",
+const useLocalStorageState = (key, initialValue) => {
+  const [state, setState] = useState(() => {
+    return JSON.parse(localStorage.getItem(key)) || initialValue;
   });
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(state));
+  }, [key, state]);
+
+  return [state, setState];
+};
+
+const useCounter = () => {
+  const [count, setCount] = useLocalStorageState("count", 0);
 
   const increment = () => {
     setCount((count) => count + 1);
@@ -14,6 +21,17 @@ const CustomHookExample = () => {
   const decrement = () => {
     setCount((count) => count - 1);
   };
+
+  return [count, increment, decrement];
+};
+
+// without custom hook
+const CustomHookExample = () => {
+  const [count, increment, decrement] = useCounter(0);
+  const [book, setBook] = useLocalStorageState("book", {
+    title: "",
+    author: "",
+  });
 
   return (
     <div>
