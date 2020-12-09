@@ -5,6 +5,7 @@ import PaginationBar from "../components/PaginationBar";
 import SearchForm from "../components/SearchForm";
 import api from "../apiService";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
@@ -42,11 +43,9 @@ const HomePage = () => {
         let url = `/books?_page=${pageNum}&_limit=${limit}`;
         if (query) url += `&q=${query}`;
         const res = await api.get(url);
-        console.log(res);
         setBooks(res.data);
-        setErrorMessage("");
       } catch (error) {
-        setErrorMessage(error.message);
+        toast.error(error.message);
       }
       setLoading(false);
     };

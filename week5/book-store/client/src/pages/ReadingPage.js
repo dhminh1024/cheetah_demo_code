@@ -2,15 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Card, Container, Row, Col, Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import api from "../apiService";
+import { useSelector, useDispatch } from "react-redux";
+import bookActions from "";
 
 const BACKEND_API = process.env.REACT_APP_BACKEND_API;
 
 const ReadingPage = () => {
-  const [books, setBooks] = useState([]);
+  // const [books, setBooks] = useState([]);
+  // const [loading, setLoading] = useState(false);
+  const books = useSelector((state) => state.book.readingList);
+  const loading = useSelector((state) => state.book.loading);
 
-  const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const handleClickBook = (bookId) => {
@@ -19,19 +24,8 @@ const ReadingPage = () => {
   };
 
   useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      try {
-        const res = await api.get(`/favorites`);
-        setBooks(res.data);
-        setErrorMessage("");
-      } catch (error) {
-        setErrorMessage(error.message);
-      }
-      setLoading(false);
-    };
-    fetchData();
-  }, []);
+    dispatch(bookActions.getReadingList());
+  }, [dispatch]);
 
   return (
     <Container>
