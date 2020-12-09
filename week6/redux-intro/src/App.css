@@ -1,0 +1,12 @@
+.box {
+  border: 1px solid #2c3e50;
+  box-shadow: 2px 2px 7px 1px #95a5a6;
+}
+.box .box-title {
+  background-color: #3498db;
+  line-height: 34px;
+  color: white;
+}
+.box .container-fluid {
+  margin-bottom: 0.5rem;
+}
