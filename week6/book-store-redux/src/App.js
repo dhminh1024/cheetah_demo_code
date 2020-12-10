@@ -8,18 +8,24 @@ import ReadingPage from "./pages/ReadingPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import BookDetailPage from "./pages/BookDetailPage";
 import AlertMsg from "./components/AlertMsg";
+import { Col, Row } from "react-bootstrap";
 
 function App() {
   return (
     <Router>
       <PublicNavbar />
       <AlertMsg />
-      <Switch>
-        <Route exact path="/books/:id" component={BookDetailPage} />
-        <Route exact path="/reading" component={ReadingPage} />
-        <Route exact path="/" component={HomePage} />
-        <Route component={NotFoundPage} />
-      </Switch>
+      <Row>
+        <Col>SideMenu</Col>
+        <Col>
+          <Switch>
+            <Route exact path="/books/:id" component={BookDetailPage} />
+            <Route exact path="/reading" component={ReadingPage} />
+            <Route exact path="/" component={HomePage} />
+            <Route component={NotFoundPage} />
+          </Switch>
+        </Col>
+      </Row>
     </Router>
   );
 }

@@ -22,6 +22,7 @@ const AdminLayout = () => {
           </Col>
           <Col md={9} lg={10}>
             <AlertMsg />
+
             <Switch>
               <Route exact path="/admin/profile" component={ProfilePage} />
               <Route exact path="/admin/friends" component={FriendListPage} />
