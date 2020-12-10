@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import authActions from "../redux/actions/auth.actions";
 
 const LoginPage = () => {
@@ -42,6 +43,9 @@ const LoginPage = () => {
             </Form.Group>
             <Button type="submit">Login</Button>
           </Form>
+          <p>
+            Don't have an account? <Link to="/register">Sign Up</Link>
+          </p>
         </Col>
       </Row>
     </Container>
