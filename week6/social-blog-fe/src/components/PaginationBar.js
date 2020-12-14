@@ -1,49 +1,58 @@
 import React from "react";
 import { Pagination } from "react-bootstrap";
 
-const PaginationBar = ({ pageNum, setPageNum, totalPageNum }) => {
-  const handleClickOnFirst = () => {
-    setPageNum(1);
+const PaginationBar = ({ pageNum, setPageNum, totalPageNum, loading }) => {
+  const handleClick = (page) => {
+    if (!loading) {
+      setPageNum(parseInt(page));
+    }
   };
-  const handleClickOnPrev = () => {
-    if (pageNum > 1) setPageNum((num) => num - 1);
+
+  const handleClickOnFirst = () => {
+    if (!loading) {
+      setPageNum(1);
+    }
   };
 
   const handleClickOnLast = () => {
-    setPageNum(totalPageNum);
+    if (!loading) {
+      setPageNum(totalPageNum);
+    }
   };
   const handleClickOnNext = () => {
-    if (pageNum < totalPageNum) setPageNum((num) => num + 1);
+    if (pageNum < totalPageNum && !loading) {
+      setPageNum((num) => num + 1);
+    }
+  };
+  const handleClickOnPrev = () => {
+    if (pageNum > 1 && !loading) {
+      setPageNum((num) => num - 1);
+    }
   };
 
-  const handleClickOnPage = (page) => {
-    setPageNum(page);
-  };
   return (
-    <Pagination className="mt-3 justify-content-center">
+    <Pagination className="justify-content-center" disabled={loading}>
       <Pagination.First disabled={pageNum === 1} onClick={handleClickOnFirst} />
       <Pagination.Prev disabled={pageNum === 1} onClick={handleClickOnPrev} />
-      <Pagination.Item
-        active={pageNum === 1}
-        onClick={() => handleClickOnPage(1)}
-      >
+      <Pagination.Item active={pageNum === 1} onClick={() => handleClick(1)}>
         {1}
       </Pagination.Item>
-      {pageNum > 2 && <Pagination.Ellipsis />}
 
+      {pageNum - 1 > 1 && <Pagination.Ellipsis />}
       {pageNum > 1 && pageNum < totalPageNum && (
         <Pagination.Item active>{pageNum}</Pagination.Item>
       )}
+      {totalPageNum > pageNum + 1 && <Pagination.Ellipsis />}
 
-      {pageNum < totalPageNum - 1 && <Pagination.Ellipsis />}
       {totalPageNum > 1 && (
         <Pagination.Item
           active={pageNum === totalPageNum}
-          onClick={() => handleClickOnPage(totalPageNum)}
+          onClick={() => handleClick(totalPageNum)}
         >
           {totalPageNum}
         </Pagination.Item>
       )}
+
       <Pagination.Next
         disabled={pageNum === totalPageNum}
         onClick={handleClickOnNext}

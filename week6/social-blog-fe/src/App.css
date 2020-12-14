@@ -1,0 +1,137 @@
+/*
+ * Sidebar
+ */
+
+.sidebar {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100; /* Behind the navbar */
+  min-height: 100vh !important;
+  padding: 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 5rem;
+  }
+}
+
+.sidebar-sticky {
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+@supports ((position: -webkit-sticky) or (position: sticky)) {
+  .sidebar-sticky {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+
+.nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.nav-link.active {
+  color: #007bff !important;
+}
+
+.reactions {
+  display: flex;
+  padding: 0;
+}
+.reactions li {
+  list-style: none;
+  margin-right: 30px;
+  color: #1da1f2;
+  font-weight: bold;
+}
+
+.reactions button {
+  border: none;
+  color: #657786;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.reactions button:hover {
+  color: #1da1f2;
+}
+
+.comment {
+  padding-bottom: 1.5em;
+}
+.comment_body {
+  font-size: 20px;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+.comment_author,
+.comment_date {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* Image Gallery */
+
+.image-gallery {
+  width: 40%;
+  height: auto;
+}
+
+.image-gallery-slide img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: cover;
+  overflow: hidden;
+  object-position: center center;
+}
+
+.fullscreen .image-gallery-slide img {
+  max-height: 100vh;
+}
+
+.avatar-sm {
+  vertical-align: middle;
+  width: 45px;
+  height: 45px;
+  border-radius: 15%;
+}
+
+.avatar-lg {
+  vertical-align: middle;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+}
+
+.messages {
+  padding: 1em;
+  overflow: auto;
+  flex: auto;
+  height: calc(100vh - 200px);
+}
+
+.conversation-list {
+  top: 0;
+  height: calc(100vh - 150px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.google-btn {
+  box-shadow: none !important;
+  border-left: none !important;
+  border: 1px solid gainsboro !important;
+  opacity: 1 !important;
+  font-size: 16px !important;
+}

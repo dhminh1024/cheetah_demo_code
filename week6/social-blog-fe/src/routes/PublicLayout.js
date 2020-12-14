@@ -1,20 +1,22 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import { Route, Switch } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import PublicNavbar from "../components/PublicNavbar";
-import PrivateRoute from "./PrivateRoute";
-import LoginPage from "../pages/LoginPage";
-import RegisterPage from "../pages/RegisterPage";
-import BlogDetailPage from "../pages/BlogDetailPage";
+import { Switch, Route } from "react-router-dom";
+import AlertMsg from "../components/AlertMsg";
+import NotFoundPage from "../components/NotFoundPage";
 import AddEditBlogPage from "../pages/AddEditBlogPage";
-import NotFoundPage from "../pages/NotFoundPage";
+import BlogDetailPage from "../pages/BlogDetailPage";
+import HomePage from "../pages/HomePage";
+import LoginPage from "../pages/LoginPage";
+import PublicNavbar from "../components/PublicNavbar";
+import RegisterPage from "../pages/RegisterPage";
+import PrivateRoute from "./PrivateRoute";
 
 const PublicLayout = () => {
   return (
     <>
       <PublicNavbar />
       <Container>
+        <AlertMsg />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/login" component={LoginPage} />
