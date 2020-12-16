@@ -80,9 +80,9 @@ function App() {
 
   function getUrl() {
     if (selectedCity)
-      return `https://api.openweathermap.org/data/2.5/weather?lat=${selectedCity.latitude}&lon=${selectedCity.longitude}&appid=${API_KEY}`;
+      return `http://localhost:5000/api/weather?lat=${selectedCity.latitude}&lon=${selectedCity.longitude}&appid=${API_KEY}`;
     if (geoLocation.longitude && geoLocation.latitude) {
-      return `https://api.openweathermap.org/data/2.5/weather?lat=${geoLocation.latitude}&lon=${geoLocation.longitude}&appid=${API_KEY}`;
+      return `http://localhost:5000/api/weather?lat=${geoLocation.latitude}&lon=${geoLocation.longitude}&appid=${API_KEY}`;
     }
     return "";
   }
@@ -139,8 +139,8 @@ function App() {
 
   return (
     <>
-      <Counter />
-      {/* <PublicNavbar />
+      {/* <Counter /> */}
+      <PublicNavbar />
       <Container>
         <Row>
           <Col md={3}>
@@ -153,8 +153,8 @@ function App() {
           <Col md={9}>
             <WeatherInfo weather={weather} />
           </Col>
-        </Row> 
-      </Container>*/}
+        </Row>
+      </Container>
     </>
   );
 }
