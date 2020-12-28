@@ -1,0 +1,25 @@
+{
+  "students": [
+    {
+      "id": 3,
+      "name": "Minh",
+      "company": "CoderSchool"
+    },
+    {
+      "id": 5,
+      "name": "Thong"
+    }
+  ],
+
+  "people": [
+    { "id": 1, "name": "A", "movies": ["2"] },
+    { "id": 2, "name": "B", "movies": ["1"] },
+    { "id": 3, "name": "C", "movies": ["3"] },
+    { "id": 4, "name": "D", "movies": ["1", "3"] }
+  ],
+  "movies": [
+    { "id": 1, "name": "M1", "actors": ["4", "2"] },
+    { "id": 2, "name": "M2", "actors": ["1"] },
+    { "id": 3, "name": "M3", "actors": ["3", "4"] }
+  ]
+}
