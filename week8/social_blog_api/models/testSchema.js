@@ -201,15 +201,19 @@ const getFriendList = async (user) => {
   }
 };
 
-const main = async () => {
-  await cleanData();
-  const users = await createRandomUsers(10);
-  const blogs = await createRandomBlogs(users);
-  const reviews = await createRandomReviews(blogs, users);
-  const reactions = await createRandomReactions(blogs, users, reviews);
-  const friendships = await createRandomFriendships(users);
+const main = async (genData = false) => {
+  if (genData) {
+    await cleanData();
+    const users = await createRandomUsers(10);
+    const blogs = await createRandomBlogs(users);
+    const reviews = await createRandomReviews(blogs, users);
+    const reactions = await createRandomReactions(blogs, users, reviews);
+    const friendships = await createRandomFriendships(users);
+  }
 
-  await getFriendList(users[getRandomInt(0, users.length - 1)]);
+  const user = await User.find();
+  console.log(user.length);
+  // await getFriendList(user);
 };
 
 main();
